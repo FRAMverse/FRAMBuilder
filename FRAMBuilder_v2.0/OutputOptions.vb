@@ -770,10 +770,12 @@ Here:
                                 fram_match = 57  'Assign To Area 11 sport
                                 cwtsubset(l)("finalFmap") = fram_match 'Rewire accordingly
                             ElseIf (Month(cwtsubset(l)("RecoveryDate")) >= 7 And Month(cwtsubset(l)("RecoveryDate")) <= 9) Then
-                                If cwtsubset(l)("RecoverySite").ToString.Contains("872155" Or "872585") = True Then
+                                If cwtsubset(l)("RecoverySite").ToString.Contains("872155") Or cwtsubset(l)("RecoverySite").ToString.Contains("872585") = True Then
                                     fram_match = 60  'Assign To Elliott Bay
                                     cwtsubset(l)("finalFmap") = fram_match 'Rewire accordingly
-                                ElseIf cwtsubset(l)("RecoverySite").ToString.Contains("872477" Or "872286" Or "872408") = True Then
+                                ElseIf cwtsubset(l)("RecoverySite").ToString.Contains("872477") Or cwtsubset(l)("RecoverySite").ToString.Contains("872286") Or 
+                                    cwtsubset(l)("RecoverySite").ToString.Contains("872408") Or cwtsubset(l)("RecoverySite").ToString.Contains("872232") Or 
+                                    cwtsubset(l)("RecoverySite").ToString.Contains("872046") Or cwtsubset(l)("RecoverySite").ToString.Contains("872024") = True Then
                                     fram_match = 62 'Assign To Sinclair Inlet
                                     cwtsubset(l)("finalFmap") = fram_match 'Rewire accordingly
                                 End If
@@ -832,9 +834,8 @@ Here:
 
                         'Seventh Rule: Moving 12H (Hoodsport) to FW Net, consistent with the TAMM treatment of the fishery
                         If (cwtsubset(l)("Fishery") = 2318 Or cwtsubset(l)("Fishery") = 2319) And cwtsubset(l)("RecoverySite").ToString.Contains("12  H") = True Then
-                            'At present the only sport recovery code discernable is Big Lagoon to Centerville Beach, eval as needed
                             cwtsubset(l)("finalFmap") = fram_match 'Rewire accordingly
-                            fram_match = 73 'Move Recoveries to KMZ Sport, leave others in Cali Sport
+                            fram_match = 73 'Assign to FW Net, consistent with the TAMM treatment of the fishery
                             'But also write to log for inspection
                             stringier = String.Join(",", cwtsubset(l).ItemArray.Select(Function(s) s.ToString).ToArray) 'Shorthand notation for writing a single row to file
                             'CWTlog.AppendLine("Verify rec mapped to Freshwater Net (#73) from 12 H Net,   " & stringier)
@@ -844,10 +845,10 @@ Here:
 
                         'Eighth Rule: moving incorrectly mapped Area 1 Troll recoveries into the correct fishery
                         If (cwtsubset(l)("Fishery") = 1309 And (cwtsubset(l)("RecoverySite").ToString = "5M2220202O0202  10" Or cwtsubset(l)("RecoverySite").ToString = "5M2221002O1002  10")) Then
-                            fram_match = 26 'Move Recoveries to KMZ Sport, leave others in Cali Sport
+                            fram_match = 26 'Assign to Area 1 Troll, leave others in Central OR Troll
                             cwtsubset(l)("finalFmap") = fram_match 'Rewire accordingly
                             stringier = String.Join(",", cwtsubset(l).ItemArray.Select(Function(s) s.ToString).ToArray) 'Shorthand notation for writing a single row to file
-                            'CWTlog.AppendLine("Verify rec mapped to Freshwater Net (#73) from 12 H Net,   " & stringier)
+                            'CWTlog.AppendLine("Verify rec mapped to Area 1 Troll from OR Area 3 Troll,   " & stringier)
                             note = "OR Area 3 Troll Rec moved to Area 1 Troll,   " & stringier
                             dtProcessOut.Tables(0).Rows.Add(runID, stk, code, RecId, note)
                         End If
