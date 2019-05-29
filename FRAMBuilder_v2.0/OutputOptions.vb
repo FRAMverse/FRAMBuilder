@@ -834,8 +834,8 @@ Here:
 
                         'Seventh Rule: Moving 12H (Hoodsport) to FW Net, consistent with the TAMM treatment of the fishery
                         If (cwtsubset(l)("Fishery") = 2318 Or cwtsubset(l)("Fishery") = 2319) And cwtsubset(l)("RecoverySite").ToString.Contains("12  H") = True Then
-                            cwtsubset(l)("finalFmap") = fram_match 'Rewire accordingly
                             fram_match = 73 'Assign to FW Net, consistent with the TAMM treatment of the fishery
+                            cwtsubset(l)("finalFmap") = fram_match 'Rewire accordingly
                             'But also write to log for inspection
                             stringier = String.Join(",", cwtsubset(l).ItemArray.Select(Function(s) s.ToString).ToArray) 'Shorthand notation for writing a single row to file
                             'CWTlog.AppendLine("Verify rec mapped to Freshwater Net (#73) from 12 H Net,   " & stringier)
@@ -867,6 +867,15 @@ Here:
                                 fram_match = 39 'Assign to Non-Treaty Bham Bay
                                 cwtsubset(l)("finalFmap") = fram_match 'Rewire accordingly
                             End If
+                        End If
+
+                        'Tenth Rule: Mapping N WA Cost Net recoveries (CAS Fishery 2321) that occur in 4B to JDF net
+                        If (cwtsubset(l)("Fishery") = 2321) And cwtsubset(l)("RecoverySite").ToString.Contains("04  B") = True Then
+                            fram_match = 43 'Assign to JDF Net
+                            cwtsubset(l)("finalFmap") = fram_match 'Rewire accordingly
+                            stringier = String.Join(",", cwtsubset(l).ItemArray.Select(Function(s) s.ToString).ToArray) 'Shorthand notation for writing a single row to file
+                            note = "Net recovery in Area 4B mapped to JDF Net,   " & stringier
+                            dtProcessOut.Tables(0).Rows.Add(runID, stk, code, RecId, note)
                         End If
 
 
