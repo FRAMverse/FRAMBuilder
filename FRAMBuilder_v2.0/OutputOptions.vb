@@ -878,6 +878,13 @@ Here:
                             dtProcessOut.Tables(0).Rows.Add(runID, stk, code, RecId, note)
                         End If
 
+                        'Eleventh Rule: Mapping recoveries of Willapa stock in Willapa Bay sport to freshwater sport
+                        If cwtsubset(l)("Fishery") = 3319 And cwtsubset(l)("RecoverySite").ToString = "3M21902" And stk = "WPA" Then
+                            fram_match = 72 'Assign to freshwater sport (because Willapa Bay sport fishery does not exist)
+                            cwtsubset(l)("finalFmap") = fram_match 'Rewire accordingly
+                            stringier = String.Join(",", cwtsubset(l).ItemArray.Select(Function(s) s.ToString).ToArray) 'Shorthand notation for writing a single row to file
+                            note = "Willapa Bay Marine Sport recovery mapped to FW sport due to lack of marine bay fishery,   " & stringier
+                        End If
 
 
                         '!!!! Angelika temporary fix, treat all FW recs (FW net & sport, esc., B10, Col R net as escapement
