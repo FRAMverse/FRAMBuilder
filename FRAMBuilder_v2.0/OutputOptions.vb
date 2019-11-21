@@ -785,7 +785,7 @@ Here:
                             End If
                         End If
 
-                        'Third Rule: Moving 8D Sport out of 8-1/8-2 Sport during Tulalip Bay management
+                        'Third Rule: Moving 8D Sport out of 8-2 Sport during Tulalip Bay management
                         If cwtsubset(l)("Fishery") = 3308 And (Month(cwtsubset(l)("RecoveryDate")) >= 6 And Month(cwtsubset(l)("RecoveryDate")) <= 9) Then
                             fram_match = 48 'Move recoveries into 8-D if they were an 8-2 Rec during months of Jun-Sept (8-2 closed, 8D open)
                             cwtsubset(l)("finalFmap") = fram_match 'Rewire accordingly
@@ -811,7 +811,7 @@ Here:
                         'Fifth Rule: Separating KMZ From California Troll so that it can be merged with OR KMZ Troll into single FRAM KMZ Troll Fishery
                         If cwtsubset(l)("Fishery") = 1314 And cwtsubset(l)("RecoverySite").ToString.Contains("OBHJ") = True Then
                             'At present the only troll recovery code discernable as within KMZ is Oregon Border-Humboldt Jetty, eval as needed
-                            fram_match = 32 'Move Recoveries to KMZ Troll, leave others in Cali Sport
+                            fram_match = 32 'Move Recoveries to KMZ Troll, leave others in Cali Troll
                             cwtsubset(l)("finalFmap") = fram_match 'Rewire accordingly
                             'But also write to log for inspection
                             stringier = String.Join(",", cwtsubset(l).ItemArray.Select(Function(s) s.ToString).ToArray) 'Shorthand notation for writing a single row to file
