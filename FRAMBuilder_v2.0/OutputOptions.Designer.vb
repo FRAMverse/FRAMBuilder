@@ -109,11 +109,13 @@ Partial Class form_OutputOptions
         'ck_bnBroodWt
         '
         Me.ck_bnBroodWt.AutoSize = True
+        Me.ck_bnBroodWt.Checked = True
+        Me.ck_bnBroodWt.CheckState = System.Windows.Forms.CheckState.Checked
         Me.ck_bnBroodWt.Location = New System.Drawing.Point(14, 142)
         Me.ck_bnBroodWt.Name = "ck_bnBroodWt"
         Me.ck_bnBroodWt.Size = New System.Drawing.Size(217, 56)
         Me.ck_bnBroodWt.TabIndex = 20
-        Me.ck_bnBroodWt.Text = "Use db wts + rules for b/n BY merge?" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "  flag = 1 is unweighted" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "  flag = 2 OR no " & _
+        Me.ck_bnBroodWt.Text = "Use db wts + rules for b/n BY merge?" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "  flag = 1 is unweighted" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "  flag = 2 OR no " &
     "flag is rec's wtd (default)" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "  flag = 3 is user-spec'd wt" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
         Me.ck_bnBroodWt.TextAlign = System.Drawing.ContentAlignment.TopLeft
         Me.ck_bnBroodWt.UseVisualStyleBackColor = True
@@ -121,11 +123,13 @@ Partial Class form_OutputOptions
         'ck_winBYwt
         '
         Me.ck_winBYwt.AutoSize = True
+        Me.ck_winBYwt.Checked = True
+        Me.ck_winBYwt.CheckState = System.Windows.Forms.CheckState.Checked
         Me.ck_winBYwt.Location = New System.Drawing.Point(14, 94)
         Me.ck_winBYwt.Name = "ck_winBYwt"
         Me.ck_winBYwt.Size = New System.Drawing.Size(230, 43)
         Me.ck_winBYwt.TabIndex = 9
-        Me.ck_winBYwt.Text = "Use db wts + rules for w/in BY merge?" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "  flag = 1 OR no flag is unweighted (defau" & _
+        Me.ck_winBYwt.Text = "Use db wts + rules for w/in BY merge?" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "  flag = 1 OR no flag is unweighted (defau" &
     "lt)" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "  flag = 2 is user-spec'd wt" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
         Me.ck_winBYwt.TextAlign = System.Drawing.ContentAlignment.TopLeft
         Me.ck_winBYwt.UseVisualStyleBackColor = True
@@ -295,7 +299,7 @@ Partial Class form_OutputOptions
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
-End Sub
+    End Sub
     Friend WithEvents lbl_CWTdb3 As System.Windows.Forms.Label
     Friend WithEvents btn_Return1 As System.Windows.Forms.Button
     Friend WithEvents ck_mergeCodes As System.Windows.Forms.CheckBox
