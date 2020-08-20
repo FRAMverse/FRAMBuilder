@@ -821,8 +821,8 @@ Here:
                         End If
 
                         'Sixth Rule: Separating KMZ From California Sport so that it can be merged with OR KMZ Sport into single FRAM KMZ Sport Fishery
-                        If cwtsubset(l)("Fishery") = 3331 And cwtsubset(l)("RecoverySite").ToString.Contains("BGCB") = True Then
-                            'At present the only sport recovery code discernable is Big Lagoon to Centerville Beach, eval as needed
+                        If cwtsubset(l)("Fishery") = 3331 And (cwtsubset(l)("RecoverySite").ToString.Contains("BGCB") Or cwtsubset(l)("RecoverySite").ToString.Contains("OBFK")) = True Then
+                            'At present the only sport recovery codes discernable as within KMZ are Big Lagoon to Centerville Beach and OR Border to False Klamath Rock, eval as needed
                             fram_match = 33 'Move Recoveries to KMZ Sport, leave others in Cali Sport
                             cwtsubset(l)("finalFmap") = fram_match 'Rewire accordingly
                             'But also write to log for inspection
