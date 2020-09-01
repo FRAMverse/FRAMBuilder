@@ -809,7 +809,7 @@ Here:
                         End If
 
                         'Fifth Rule: Separating KMZ From California Troll so that it can be merged with OR KMZ Troll into single FRAM KMZ Troll Fishery
-                        If cwtsubset(l)("Fishery") = 1314 And cwtsubset(l)("RecoverySite").ToString.Contains("OBHJ") = True Then
+                        If cwtsubset(l)("Fishery") = 1314 And (cwtsubset(l)("RecoverySite").ToString.Contains("OBFK") Or cwtsubset(l)("RecoverySite").ToString.Contains("OBBG") Or cwtsubset(l)("RecoverySite").ToString.Contains("OBHJ") Or cwtsubset(l)("RecoverySite").ToString.Contains("FKBG") Or cwtsubset(l)("RecoverySite").ToString.Contains("FKCB") Or cwtsubset(l)("RecoverySite").ToString.Contains("BGHJ") Or cwtsubset(l)("RecoverySite").ToString.Contains("BGCB")) = True Then
                             'At present the only troll recovery code discernable as within KMZ is Oregon Border-Humboldt Jetty, eval as needed
                             fram_match = 32 'Move Recoveries to KMZ Troll, leave others in Cali Troll
                             cwtsubset(l)("finalFmap") = fram_match 'Rewire accordingly
@@ -821,7 +821,7 @@ Here:
                         End If
 
                         'Sixth Rule: Separating KMZ From California Sport so that it can be merged with OR KMZ Sport into single FRAM KMZ Sport Fishery
-                        If cwtsubset(l)("Fishery") = 3331 And (cwtsubset(l)("RecoverySite").ToString.Contains("BGCB") Or cwtsubset(l)("RecoverySite").ToString.Contains("OBFK")) = True Then
+                        If cwtsubset(l)("Fishery") = 3331 And (cwtsubset(l)("RecoverySite").ToString.Contains("OBFK") Or cwtsubset(l)("RecoverySite").ToString.Contains("FKBG") Or cwtsubset(l)("RecoverySite").ToString.Contains("BGCB")) = True Then
                             'At present the only sport recovery codes discernable as within KMZ are Big Lagoon to Centerville Beach and OR Border to False Klamath Rock, eval as needed
                             fram_match = 33 'Move Recoveries to KMZ Sport, leave others in Cali Sport
                             cwtsubset(l)("finalFmap") = fram_match 'Rewire accordingly
