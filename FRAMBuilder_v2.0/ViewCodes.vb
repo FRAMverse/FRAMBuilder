@@ -102,10 +102,10 @@ Public Class form_ViewCodes
             If ChooseBY = "Base Yrs/Stks/Codes Only (2005-2009)" Then
                 ChooseBY = "Between 2005 And 2009"
             ElseIf ChooseBY = "Everything in database" Then
-            ChooseBY = "Between 1970 And 2016"
+            ChooseBY = "Between 1970 And 2099" 'kicking the can until after i'm dead - Ty
         ElseIf ChooseBY = "OOB Codes" Then
                 OOB = True
-            ChooseBY = "Between 1970 And 2016"
+            ChooseBY = "Between 1970 And 2099" 'here too
         End If
 
 
